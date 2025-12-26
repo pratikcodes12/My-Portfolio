@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pratik Raut | Student & Developer Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #2c3e50, #4a6fa5);
+            color: white;
+            padding: 80px 0 40px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+        
+        .section {
+            padding: 60px 0;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #2c3e50;
+            font-size: 1.8rem;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #4a6fa5;
+            margin: 10px auto;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .profile-img {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+        }
+        
+        .profile-img img {
+            width: 100%;
+            max-width: 250px;
+            border-radius: 50%;
+            border: 5px solid #eaeaea;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .about-text {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .skill-category {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+        
+        .skill-category h3 {
+            margin-bottom: 15px;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .skill-category h3 i {
+            color: #4a6fa5;
+        }
+        
+        .skill-list {
+            list-style-type: none;
+        }
+        
+        .skill-list li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #eee;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .skill-level {
+            color: #4a6fa5;
+            font-weight: 600;
+        }
+        
+        .learning-badge {
+            background: #e8f4fc;
+            color: #2c3e50;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            margin-left: 5px;
+        }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .project-info {
+            padding: 25px;
+        }
+        
+        .project-title {
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        
+        .tool-tag {
+            background: #eef5fc;
+            color: #4a6fa5;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .education-timeline {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .education-item {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 4px solid #4a6fa5;
+        }
+        
+        .achievement-item, .hobby-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .hobbies-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .hobby-item {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .hobby-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .hobby-item i {
+            font-size: 2rem;
+            color: #4a6fa5;
+            margin-bottom: 15px;
+        }
+        
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            text-align: center;
+        }
+        
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            min-width: 200px;
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .contact-item i {
+            font-size: 2rem;
+            color: #4a6fa5;
+        }
+        
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 40px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: transform 0.3s, color 0.3s;
+        }
+        
+        .social-links a:hover {
+            transform: scale(1.2);
+            color: #4a6fa5;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section {
+                padding: 40px 0;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <h1>Pratik Raut</h1>
+            <p class="tagline">Student & Aspiring Software Developer</p>
+            <p>Building a strong foundation in technology and problem-solving</p>
+        </div>
+    </header>
+
+    <!-- About Me Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="profile-img">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Pratik Raut">
+                </div>
+                <div class="about-text">
+                    <p>Hello! My name is Pratik Raut. I am a student and beginner-level software developer with a strong interest in learning new technologies. I enjoy understanding how software works and building small projects to improve my skills.</p>
+                    <br>
+                    <p>My career goal is to grow into a skilled software engineer or data professional by gaining practical experience and strong technical foundations. I'm particularly interested in machine learning and data science applications.</p>
+                    <br>
+                    <p>I believe in continuous learning and am always excited to take on new challenges that help me grow both technically and personally.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section" id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Technical Skills</h3>
+                    <ul class="skill-list">
+                        <li>Python <span class="skill-level">Intermediate</span></li>
+                        <li>C++ <span class="skill-level">Intermediate</span></li>
+                        <li>Java <span class="skill-level">Beginner</span></li>
+                        <li>HTML/CSS <span class="skill-level">Intermediate</span></li>
+                        <li>MySQL <span class="skill-level">Beginner</span></li>
+                        <li>Git & VS Code <span class="skill-level">Intermediate</span></li>
+                        <li>Data Structures & OOP <span class="skill-level">Intermediate</span></li>
+                        <li>Machine Learning Basics <span class="skill-level">Beginner</span></li>
+                        <li>Flask <span class="skill-level"><span class="learning-badge">Learning</span></span></li>
+                        <li>Advanced Python <span class="skill-level"><span class="learning-badge">Learning</span></span></li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-user-friends"></i> Soft Skills</h3>
+                    <ul class="skill-list">
+                        <li>Problem-solving</li>
+                        <li>Willingness to learn</li>
+                        <li>Time management</li>
+                        <li>Teamwork</li>
+                        <li>Basic communication skills</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section" id="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="education-timeline">
+                <div class="education-item">
+                    <h3>Bachelor of Science (B.Sc) / Master of Computer Science (MCS)</h3>
+                    <p><strong>Currently Studying</strong></p>
+                    <p>Field of Study: Computer Science / Software Development / Data Science</p>
+                    <p>Relevant Coursework: Data Structures, Algorithms, Database Systems, Machine Learning Basics, Web Development</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3 class="project-title">Mixer Grinder Fault Detection</h3>
+                        <p>A machine learning project to detect mechanical faults in a mixer grinder using audio signal data. Applied noise reduction and trained models for fault classification.</p>
+                        <div class="tools">
+                            <span class="tool-tag">Python</span>
+                            <span class="tool-tag">Scikit-learn</span>
+                            <span class="tool-tag">FFT</span>
+                            <span class="tool-tag">Random Forest</span>
+                            <span class="tool-tag">Machine Learning</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3 class="project-title">Student Portfolio Website</h3>
+                        <p>A simple personal portfolio website to showcase skills, projects, and contact details. Designed with clean layout and responsive design for all devices.</p>
+                        <div class="tools">
+                            <span class="tool-tag">HTML</span>
+                            <span class="tool-tag">CSS</span>
+                            <span class="tool-tag">Responsive Design</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3 class="project-title">Retail Smart Trolley</h3>
+                        <p>An academic concept project for automatic product detection in a smart shopping trolley using computer vision techniques to identify items and calculate totals.</p>
+                        <div class="tools">
+                            <span class="tool-tag">Python</span>
+                            <span class="tool-tag">Machine Learning</span>
+                            <span class="tool-tag">RCNN (Basic)</span>
+                            <span class="tool-tag">Computer Vision</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="section" id="achievements">
+        <div class="container">
+            <h2 class="section-title">Achievements & Certifications</h2>
+            <div class="achievement-item">
+                <h3>Python Programming Certification</h3>
+                <p>Completed online courses in Python programming (Beginner to Intermediate level)</p>
+            </div>
+            <div class="achievement-item">
+                <h3>Machine Learning Foundations</h3>
+                <p>Completed beginner-level online courses in Machine Learning concepts and applications</p>
+            </div>
+            <div class="achievement-item">
+                <h3>Technical Workshops</h3>
+                <p>Participated in college-level technical workshops on software development and data science</p>
+            </div>
+            <div class="achievement-item">
+                <h3>Academic Mini-Project Certifications</h3>
+                <p>Recognized for academic mini-projects in software development and machine learning</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interests & Hobbies Section -->
+    <section class="section" id="hobbies">
+        <div class="container">
+            <h2 class="section-title">Interests & Hobbies</h2>
+            <div class="hobbies-container">
+                <div class="hobby-item">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Learning New Programming Concepts</h3>
+                    <p>Continuously exploring new technologies and programming paradigms</p>
+                </div>
+                <div class="hobby-item">
+                    <i class="fas fa-brain"></i>
+                    <h3>Exploring ML & AI</h3>
+                    <p>Studying machine learning algorithms and artificial intelligence applications</p>
+                </div>
+                <div class="hobby-item">
+                    <i class="fas fa-book-reader"></i>
+                    <h3>Reading Technical Articles</h3>
+                    <p>Following tech blogs and reading about latest developments in software</p>
+                </div>
+                <div class="hobby-item">
+                    <i class="fas fa-language"></i>
+                    <h3>Improving English</h3>
+                    <p>Working on communication skills and technical vocabulary</p>
+                </div>
+                <div class="hobby-item">
+                    <i class="fas fa-puzzle-piece"></i>
+                    <h3>Solving Coding Problems</h3>
+                    <p>Practicing logic and algorithm problems on coding platforms</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Information</h2>
+            <div class="contact-container">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h3>Email</h3>
+                        <p>pratikraut9665@gmail.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <div>
+                        <h3>LinkedIn</h3>
+                        <p><a href="#" style="color: #4a6fa5; text-decoration: none;">Add your LinkedIn profile link</a></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <div>
+                        <h3>GitHub</h3>
+                        <p><a href="#" style="color: #4a6fa5; text-decoration: none;">Add your GitHub profile link</a></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="social-links">
+                <a href="mailto:pratikraut9665@gmail.com" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="#" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Pratik Raut. All rights reserved.</p>
+            <p>Student Portfolio | Aspiring Software Developer</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple script for smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 20,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add your LinkedIn and GitHub links here
+        const linkedinLink = document.querySelectorAll('a[aria-label="LinkedIn"]');
+        const githubLink = document.querySelectorAll('a[aria-label="GitHub"]');
+        
+        // Update these with your actual links
+        // linkedinLink[0].href = "https://linkedin.com/in/yourprofile";
+        // githubLink[0].href = "https://github.com/yourusername";
+        // Also update the text links in contact section similarly
+    </script>
+</body>
+</html>
